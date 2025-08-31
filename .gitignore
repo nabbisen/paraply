@@ -1,27 +1,36 @@
+node_modules
+bun.lock
+bun.lockb
+
 # Logs
 logs
 *.log
 npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
 
-node_modules
+
+# Output
+.output
+.vercel
+.netlify
+.wrangler
+/.svelte-kit
+/build
 dist
-dist-ssr
-*.local
+test-results
 
-bun.lock
-bun.lockb
-
-# Editor directories and files
+# OS
 .vscode/*
 !.vscode/extensions.json
-.idea
 .DS_Store
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
+Thumbs.db
+
+# Env
+.env
+.env.*
+!.env.example
+!.env.test
+*.local
+
+# Vite
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*

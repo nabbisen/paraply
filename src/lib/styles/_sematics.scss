@@ -1,0 +1,39 @@
+button,
+.button {
+    /* Basic styling */
+    font-family: sans-serif;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 8px;
+    padding: 12px 24px;
+    border: none;
+    transition: background-color 0.2s, box-shadow 0.2s;
+
+    /* High contrast colors */
+    background-color: #007bff;
+    color: #ffffff;
+
+    /* Accessible focus outline (modern approach) */
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+
+    &:hover {
+        background-color: #0056b3;
+    }
+
+    &:focus {
+        /* A clear, non-disruptive focus indicator */
+        box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.5);
+        outline: none;
+        /* remove the default browser outline */
+    }
+
+    &:active {
+        background-color: #004085;
+    }
+
+    &:disabled {
+        background-color: #555555;
+    }
+}
