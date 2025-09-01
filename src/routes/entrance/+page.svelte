@@ -39,7 +39,7 @@
 			failureAudio!.play()
 		}
 		setTimeout(() => {
-			goto('interview')
+			goto('interview/self-introduction')
 		}, 1800)
 	}
 

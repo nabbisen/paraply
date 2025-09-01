@@ -12,13 +12,15 @@
 	const isRoot = $derived(page.url.pathname === '/')
 
 	const backgroundImage: () => string = $derived(() => {
-		switch (page.url.pathname) {
-			case '/entrance':
-				return entranceBackgroundImageSrc
-			case '/interview':
-				return interviewBackgroundImageSrc
-			default:
-				return defaultBackgroundImageSrc
+		if (page.url.pathname.startsWith('/interview/')) {
+			return interviewBackgroundImageSrc
+		} else {
+			switch (page.url.pathname) {
+				case '/entrance':
+					return entranceBackgroundImageSrc
+				default:
+					return defaultBackgroundImageSrc
+			}
 		}
 	})
 </script>
