@@ -1,6 +1,7 @@
 <script lang="ts">
 	import type { PracticeItemParams } from '$lib/types/practice'
 	import { startRecognition, stopRecognition } from '$lib/utils/speechRecognition'
+	import { onMount } from 'svelte'
 
 	const FEMALE_VOICE_NAMES: string[] = [
 		'Kyoko',
@@ -22,6 +23,8 @@
 
 	let errtext = $state('')
 
+	let voices: SpeechSynthesisVoice[] = []
+
 	function listen() {
 		const utterance = new SpeechSynthesisUtterance(text)
 		utterance.rate = params.speechSynthesisParams.rate
@@ -37,7 +40,7 @@
 		utterance.voice = voice
 
 		utterance.onerror = (e) => {
-			errtext = e.error
+			errtext = `さいせいちゅうにエラーがはっせいしました:\n${e.error}`
 		}
 
 		window.speechSynthesis.speak(utterance)
@@ -56,11 +59,15 @@
 		isSpeaking = false
 	}
 
-	function getVoice(): SpeechSynthesisVoice | null {
-		const voices = window.speechSynthesis
-			.getVoices()
-			.filter((x) => x.lang === params.speechSynthesisParams.lang)
+	onMount(() => {
+		const filter = (x: SpeechSynthesisVoice) => x.lang === params.speechSynthesisParams.lang
+		voices = window.speechSynthesis.getVoices().filter(filter)
+		window.speechSynthesis.onvoiceschanged = function () {
+			voices = window.speechSynthesis.getVoices().filter(filter)
+		}
+	})
 
+	function getVoice(): SpeechSynthesisVoice | null {
 		if (voices.length === 0) {
 			return null
 		}
