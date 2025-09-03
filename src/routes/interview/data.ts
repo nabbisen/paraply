@@ -13,7 +13,7 @@ export const data = [
         params: <InterviewRouteParam>{
             title: '自己紹介',
             audioSrc: selfIntroductionAudioSrc,
-            speechSeconds: 30,
+            speechSeconds: 60,
             nextRoute: '/interview/reason-on-selection'
         }
     },
@@ -22,7 +22,7 @@ export const data = [
         params: <InterviewRouteParam>{
             title: '志望動機',
             audioSrc: reasonOnSelectionAudioSrc,
-            speechSeconds: 30,
+            speechSeconds: 60,
             nextRoute: '/interview/self-promotion'
         }
     },
@@ -31,7 +31,7 @@ export const data = [
         params: <InterviewRouteParam>{
             title: '自己アピール',
             audioSrc: selfPromotionAudioSrc,
-            speechSeconds: 30,
+            speechSeconds: 60,
             nextRoute: '/interview/what-want-to-do'
         }
     },
@@ -40,7 +40,7 @@ export const data = [
         params: <InterviewRouteParam>{
             title: '入学後にしたいこと',
             audioSrc: whatWantToDoAudioSrc,
-            speechSeconds: 30,
+            speechSeconds: 60,
             nextRoute: '/interview/any-question'
         }
     },
@@ -58,7 +58,7 @@ export const data = [
         params: <InterviewRouteParam>{
             title: 'おつかれさまでした',
             audioSrc: closingAudioSrc,
-            speechSeconds: 30,
+            speechSeconds: 10,
             nextRoute: '/insights'
         }
     },
