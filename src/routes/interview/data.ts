@@ -4,8 +4,7 @@ import selfPromotionAudioSrc from '$lib/sounds/interview/self-promotion.mp3'
 import whatWantToDoAudioSrc from '$lib/sounds/interview/what-want-to-do.mp3'
 import anyQuestionAudioSrc from '$lib/sounds/interview/any-question.mp3'
 import closingAudioSrc from '$lib/sounds/interview/closing.mp3'
-
-import { type InterviewRouteParam } from "$lib/types"
+import type { InterviewRouteParam } from '$lib/types'
 
 export const data = [
     {

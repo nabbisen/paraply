@@ -9,7 +9,7 @@
 		walkingAudio = new Audio(walkingAudioSrc)
 	})
 
-	async function start() {
+	async function interview() {
 		if (!(await getMicrophoneAccess())) {
 			return
 		}
@@ -17,7 +17,7 @@
 		walkingAudio!.play()
 
 		setTimeout(() => {
-			goto('entrance')
+			goto('/entrance')
 		}, 2000)
 	}
 
@@ -34,10 +34,33 @@
 	}
 </script>
 
-<button onclick={start}> 開始する (マイクが必要) </button>
+<div class="d-flex" style="flex-direction: column;">
+	<div class="d-flex">
+		<a class="button" href="/practice">はなす れんしゅう</a>
+		<button onclick={interview}>めんせつ</button>
+	</div>
+	<p>※ マイクがひつよう</p>
+</div>
 
 <style>
-	button {
+	.d-flex {
+		gap: 2rem;
+		justify-content: center;
+	}
+
+	button,
+	.button {
+		width: 12em;
+		height: 4em;
+		padding: 0;
 		font-size: 2em;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	p {
+		width: 100%;
+		text-align: center;
 	}
 </style>

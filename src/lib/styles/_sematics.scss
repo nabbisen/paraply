@@ -35,5 +35,10 @@ button,
 
     &:disabled {
         background-color: #555555;
+        color: #aeaeae;
     }
+}
+
+a.button {
+    text-decoration: none;
 }

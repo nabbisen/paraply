@@ -33,7 +33,7 @@
 	<header>
 		<h1 aria-label="paraply">Paraply</h1>
 		<nav>
-			<a href="/">トップに戻る</a>
+			<a href="/">トップにもどる</a>
 		</nav>
 	</header>
 	<main style={`--background-image: url(${backgroundImage()});`}>
