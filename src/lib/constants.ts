@@ -1,0 +1,1 @@
+export const SPEECH_SYNTHESIS_PARAMS_LANG = 'ja-JP'

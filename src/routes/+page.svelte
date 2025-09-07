@@ -36,10 +36,16 @@
 
 <div class="d-flex" style="flex-direction: column;">
 	<div class="d-flex">
-		<a class="button" href="/practice">はなす れんしゅう</a>
-		<button onclick={interview}>めんせつ</button>
+		<div>
+			<a class="button" href="/practice">話す 練習</a>
+			<span>Speech practice</span>
+		</div>
+		<div>
+			<button onclick={interview}>もぎ 面接</button>
+			<span>Interview simulation</span>
+		</div>
 	</div>
-	<p>※ マイクがひつよう</p>
+	<p>※ マイクが必要 | Microphone permission is requied</p>
 </div>
 
 <style>
@@ -57,6 +63,15 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
+	}
+
+	button ~ span,
+	.button ~ span {
+		width: 100%;
+		display: inline-block;
+		text-align: center;
+		font-size: 1.4em;
+		opacity: 0.8;
 	}
 
 	p {

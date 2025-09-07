@@ -33,7 +33,10 @@
 	<header>
 		<h1 aria-label="paraply">Paraply</h1>
 		<nav>
-			<a href="/">トップにもどる</a>
+			<div class="d-flex" style="flex-direction: column;">
+				<a class="button" href="/">トップにもどる</a>
+				<span>Return to top</span>
+			</div>
 		</nav>
 	</header>
 	<main style={`--background-image: url(${backgroundImage()});`}>
@@ -57,7 +60,7 @@
 		display: inline;
 	}
 
-	.root a {
+	.root nav {
 		display: none;
 	}
 

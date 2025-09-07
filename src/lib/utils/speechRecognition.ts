@@ -1,6 +1,18 @@
+import { SPEECH_SYNTHESIS_PARAMS_LANG } from "$lib/constants";
+import type { SpeechSynthesisParams } from "$lib/types/practice";
 
 let _recognition: SpeechRecognition | undefined;
 let _isActive = false
+
+function defaultSpeechSynthesisParams(): SpeechSynthesisParams {
+    return <SpeechSynthesisParams>{
+        rate: 0.8,
+        pitch: 1.0,
+        volume: 1.0,
+        lang: SPEECH_SYNTHESIS_PARAMS_LANG,
+        gender: "female",
+    }
+}
 
 function startRecognition(onresult: ((recognizedText: string) => any) | null) {
     if (!isSupported) return
@@ -61,4 +73,4 @@ function recognition(): SpeechRecognition {
     return recognition
 }
 
-export { startRecognition, stopRecognition, speechRecognitionIsActive }
+export { defaultSpeechSynthesisParams, startRecognition, stopRecognition, speechRecognitionIsActive }
