@@ -139,8 +139,8 @@
 	}
 
 	textarea {
-		width: 100%;
-		min-width: 24em;
+		width: 20em;
+		min-width: 100%;
 		max-width: 80vw;
 		min-height: 5em;
 		margin-bottom: 0.6rem;
