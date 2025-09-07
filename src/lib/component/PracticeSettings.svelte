@@ -27,9 +27,9 @@
 	})
 </script>
 
-<h3>設定 (せってい) | Settings</h3>
+<h3>⚙ 設定 (せってい) | Settings</h3>
 
-<div class="d-flex" style="flex-direction: column;">
+<div class="content">
 	<label>
 		<span>速さ (はやさ) | Speed</span>
 		<input
@@ -89,7 +89,11 @@
 </div>
 
 <style>
-	.d-flex {
+	.content {
+		margin-top: 1.2rem;
+		margin-bottom: 1.6rem;
+		display: flex;
+		flex-direction: column;
 		gap: 1.1rem;
 	}
 

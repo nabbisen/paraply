@@ -93,42 +93,71 @@
 	}
 </script>
 
-{#if errtext}
-	<p>{errtext}</p>
-{/if}
+<div class="wrapper">
+	{#if errtext}
+		<p>{errtext}</p>
+	{/if}
 
-<textarea bind:value={text}></textarea>
+	<textarea bind:value={text}></textarea>
 
-<div class="d-flex">
-	<button onclick={listen} disabled={params.practiceSettings.speechSynthesisParams.volume === 0}
-		>きいてみる</button
-	>
-	{#if isSpeaking}
-		<button onclick={endSpeech}>おして、しゅうりょう</button>
-	{:else}
-		<button onclick={startSpeech}>はなしてみよう</button>
+	<div class="translation">
+		<h4>どういう意味かな ?</h4>
+		<a href={translationUrl} target="_blank">ほんやく</a>
+		<span>Translate</span>
+	</div>
+
+	<div class="buttons">
+		<button onclick={listen} disabled={params.practiceSettings.speechSynthesisParams.volume === 0}
+			>きいてみる</button
+		>
+		{#if isSpeaking}
+			<button onclick={endSpeech}>おして、しゅうりょう</button>
+		{:else}
+			<button onclick={startSpeech}>はなしてみよう</button>
+		{/if}
+	</div>
+
+	{#if spoken}
+		<p>{spoken}</p>
 	{/if}
 </div>
 
-<h4>どういう意味かな ?</h4>
-<a href={translationUrl} target="_blank">ほんやく</a>
-<span>Translate</span>
-
-{#if spoken}
-	<p>{spoken}</p>
-{/if}
-
 <style>
-	.d-flex {
+	.wrapper {
+		padding: 1.8rem 1.1rem 1.4rem;
+		margin: 1.2rem 0;
+		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+		transition: 0.3s;
+	}
+
+	.wrapper:hover {
+		box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+	}
+
+	.buttons {
 		gap: 0.7rem;
 	}
 
 	textarea {
+		width: 100%;
 		min-width: 24em;
 		max-width: 80vw;
 		min-height: 5em;
-		margin-bottom: 1.8rem;
+		margin-bottom: 0.6rem;
 		font-size: 120%;
+	}
+
+	.translation {
+		margin: 0 0 1.6rem;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	h4 {
+		padding: 0;
+		margin: 0;
+		margin-right: 0.7em;
 	}
 
 	button {
