@@ -57,6 +57,7 @@
 	button,
 	.button {
 		width: 12em;
+		max-width: 40vw;
 		height: 4em;
 		padding: 0;
 		font-size: 2em;
@@ -70,7 +71,7 @@
 		width: 100%;
 		display: inline-block;
 		text-align: center;
-		font-size: 1.4em;
+		font-size: 1.1em;
 		opacity: 0.8;
 	}
 
