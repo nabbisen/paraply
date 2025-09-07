@@ -2,8 +2,8 @@ import type { TranslationLangType } from "./types/i18n"
 
 export const SPEECH_SYNTHESIS_PARAMS_LANG = 'ja-JP'
 
-export const TRANSLATION_SOURCE_LANG = 'ja'
-export const TRANSLATION_DEFAULT_LANG = 'zh-CN'
+export const TRANSLATION_SOURCE_LANG_CODE = 'ja'
+export const TRANSLATION_DEFAULT_LANG_CODE = 'zh-CN'
 
 export const TRANSLATION_LANGS: TranslationLangType[] = [
     {

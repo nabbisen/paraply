@@ -81,11 +81,14 @@
 			/>男性 (だんせい) | Male</label
 		>
 	</div>
-	<select bind:value={translationLangCode} onchange={() => props.onchange(updated)}>
-		{#each TRANSLATION_LANGS as lang}
-			<option value={lang.code} selected={lang.code === translationLangCode}>{lang.label}</option>
-		{/each}
-	</select>
+	<label>
+		ほんやく | Translation
+		<select bind:value={translationLangCode} onchange={() => props.onchange(updated)}>
+			{#each TRANSLATION_LANGS as lang}
+				<option value={lang.code} selected={lang.code === translationLangCode}>{lang.label}</option>
+			{/each}
+		</select>
+	</label>
 </div>
 
 <style>
@@ -100,5 +103,15 @@
 	label span {
 		display: inline-block;
 		width: 12em;
+	}
+
+	select {
+		padding: 0.7em 0.4rem 0.5rem 0.6rem;
+		margin-left: 0.7rem;
+		font-size: 1.02em;
+	}
+
+	select option {
+		font-size: 1.1em;
 	}
 </style>

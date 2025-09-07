@@ -2,7 +2,7 @@
 	import type { PracticeItemParamsType } from '$lib/types/practice'
 	import { startRecognition, stopRecognition } from '$lib/utils/speechRecognition'
 	import { onMount } from 'svelte'
-	import { TRANSLATION_SOURCE_LANG } from '$lib/constants'
+	import { TRANSLATION_SOURCE_LANG_CODE } from '$lib/constants'
 
 	const FEMALE_VOICE_NAMES: string[] = [
 		'Kyoko',
@@ -25,7 +25,7 @@
 	let errtext = $state('')
 
 	let translationUrl = $derived(
-		`https://translate.google.com/?sl=${TRANSLATION_SOURCE_LANG}&tl=${props.params.practiceSettings.translationLangCode}&text=${encodeURIComponent(text)}`
+		`https://translate.google.com/?sl=${TRANSLATION_SOURCE_LANG_CODE}&tl=${props.params.practiceSettings.translationLangCode}&text=${encodeURIComponent(text)}`
 	)
 
 	let voices: SpeechSynthesisVoice[] = []
@@ -144,7 +144,7 @@
 		max-width: 80vw;
 		min-height: 5em;
 		margin-bottom: 0.6rem;
-		font-size: 120%;
+		font-size: 1.2em;
 	}
 
 	.translation {
@@ -162,5 +162,6 @@
 
 	button {
 		width: 14em;
+		max-width: 44vw;
 	}
 </style>

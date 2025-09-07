@@ -1,4 +1,4 @@
-import { SPEECH_SYNTHESIS_PARAMS_LANG } from "$lib/constants";
+import { SPEECH_SYNTHESIS_PARAMS_LANG, TRANSLATION_DEFAULT_LANG_CODE, TRANSLATION_LANGS } from "$lib/constants";
 import type { SpeechSynthesisParamsType } from "$lib/types/practice";
 
 let _recognition: SpeechRecognition | undefined;
@@ -12,6 +12,16 @@ function defaultSpeechSynthesisParams(): SpeechSynthesisParamsType {
         lang: SPEECH_SYNTHESIS_PARAMS_LANG,
         gender: "female",
     }
+}
+
+function defaultTranslationLangCode(): string {
+    const browserDefaultLangCode = TRANSLATION_LANGS.find((x) => navigator.language.startsWith(x.code))
+    if (browserDefaultLangCode) return browserDefaultLangCode.code
+
+    const defaultLangCode = TRANSLATION_LANGS.find((x) => x.code === TRANSLATION_DEFAULT_LANG_CODE)
+    if (defaultLangCode) return defaultLangCode.code
+
+    return TRANSLATION_LANGS[0].code
 }
 
 function startRecognition(onresult: ((recognizedText: string) => any) | null) {
@@ -73,4 +83,4 @@ function recognition(): SpeechRecognition {
     return recognition
 }
 
-export { defaultSpeechSynthesisParams, startRecognition, stopRecognition, speechRecognitionIsActive }
+export { defaultSpeechSynthesisParams, defaultTranslationLangCode, startRecognition, stopRecognition, speechRecognitionIsActive }

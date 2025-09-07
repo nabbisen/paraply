@@ -57,7 +57,7 @@
 	button,
 	.button {
 		width: 12em;
-		max-width: 40vw;
+		max-width: 44vw;
 		height: 4em;
 		padding: 0;
 		font-size: 2em;

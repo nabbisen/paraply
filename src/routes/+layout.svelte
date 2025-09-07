@@ -34,8 +34,7 @@
 		<h1 aria-label="paraply">Paraply</h1>
 		<nav>
 			<div class="d-flex" style="flex-direction: column;">
-				<a class="button" href="/">トップにもどる</a>
-				<span>Return to top</span>
+				<a class="button top" href="/" aria-label="return-to-top">🏠️</a>
 			</div>
 		</nav>
 	</header>
@@ -62,6 +61,12 @@
 
 	.root nav {
 		display: none;
+	}
+
+	.button.top {
+		width: auto;
+		padding: 0.7rem;
+		background-color: #fafafa;
 	}
 
 	main {
