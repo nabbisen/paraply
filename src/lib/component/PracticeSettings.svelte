@@ -1,21 +1,29 @@
 <script lang="ts">
-	import type { SpeechSynthesisParams } from '$lib/types/practice'
+	import { TRANSLATION_LANGS } from '$lib/constants'
+	import type { PracticeSettingsType, SpeechSynthesisParamsType } from '$lib/types/practice'
 
-	let props: { params: SpeechSynthesisParams; onchange: (updated: SpeechSynthesisParams) => any } =
+	let props: { params: PracticeSettingsType; onchange: (updated: PracticeSettingsType) => any } =
 		$props()
 
-	let rate = $state(props.params.rate)
-	let pitch = $state(props.params.pitch)
-	let volume = $state(props.params.volume)
-	let lang = $state(props.params.lang)
-	let gender = $state(props.params.gender)
+	let rate = $state(props.params.speechSynthesisParams.rate)
+	let pitch = $state(props.params.speechSynthesisParams.pitch)
+	let volume = $state(props.params.speechSynthesisParams.volume)
+	let lang = $state(props.params.speechSynthesisParams.lang)
+	let gender = $state(props.params.speechSynthesisParams.gender)
 
-	let updated = $derived(<SpeechSynthesisParams>{
+	let translationLangCode = $state(props.params.translationLangCode)
+
+	let speechSynthesisParams = $derived(<SpeechSynthesisParamsType>{
 		rate,
 		pitch,
 		volume,
 		lang,
 		gender
+	})
+
+	let updated = $derived(<PracticeSettingsType>{
+		speechSynthesisParams,
+		translationLangCode
 	})
 </script>
 
@@ -73,6 +81,11 @@
 			/>男性 (だんせい) | Male</label
 		>
 	</div>
+	<select bind:value={translationLangCode} onchange={() => props.onchange(updated)}>
+		{#each TRANSLATION_LANGS as lang}
+			<option value={lang.code} selected={lang.code === translationLangCode}>{lang.label}</option>
+		{/each}
+	</select>
 </div>
 
 <style>

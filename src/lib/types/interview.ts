@@ -1,4 +1,4 @@
-export interface InterviewRouteParam {
+export interface InterviewRouteParamType {
     title: string,
     audioSrc: string,
     speechSeconds: number,

@@ -1,15 +1,21 @@
+import type { TranslationLangType } from "./i18n"
 
-export interface PracticeItemParams {
+export interface PracticeItemParamsType {
     text: string,
-    speechSynthesisParams: SpeechSynthesisParams,
+    practiceSettings: PracticeSettingsType,
 }
 
 type Gender = "female" | "mail"
 
-export interface SpeechSynthesisParams {
+export interface SpeechSynthesisParamsType {
     rate: number,
     pitch: number,
     volume: number,
     lang: string,
     gender: Gender,
+}
+
+export interface PracticeSettingsType {
+    speechSynthesisParams: SpeechSynthesisParamsType,
+    translationLangCode: string,
 }
