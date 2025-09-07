@@ -2,17 +2,13 @@
 	import type { PracticeItemParamsType } from '$lib/types/practice'
 	import { startRecognition, stopRecognition } from '$lib/utils/speechRecognition'
 	import { onMount } from 'svelte'
-	import { TRANSLATION_SOURCE_LANG_CODE } from '$lib/constants'
+	import {
+		FEMALE_VOICE_NAMES,
+		MALE_VOICE_NAMES,
+		TRANSLATION_SOURCE_LANG_CODE
+	} from '$lib/constants'
 
-	const FEMALE_VOICE_NAMES: string[] = [
-		'Kyoko',
-		'O-ren',
-		'Ayumi',
-		'Haruka',
-		'ja-JP-Standard-A',
-		'ja-JP-Standard-B'
-	]
-	const MALE_VOICE_NAMES: string[] = ['Hattori', 'Ichiro', 'ja-JP-Standard-C', 'ja-JP-Standard-D']
+	const TEXTAREA_MAXLENGHT: number = 200
 
 	const props: { params: PracticeItemParamsType; onTextChanged: (text: string) => void } = $props()
 	const params = props.params
@@ -98,7 +94,7 @@
 		<p>{errtext}</p>
 	{/if}
 
-	<textarea bind:value={text}></textarea>
+	<textarea bind:value={text} maxlength={TEXTAREA_MAXLENGHT}></textarea>
 
 	<div class="translation">
 		<h4>どういう意味かな ?</h4>
